@@ -458,3 +458,37 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   0%{opacity:1;transform:translate3d(0,0,0) rotate(0deg) scale(var(--s))}
   100%{opacity:.7;transform:translate3d(-4vw,115vh,0) rotate(320deg) scale(var(--s))}
 }
+
+/* ---- šmėkliukė-kompanionė (Ghost.jsx) ---- */
+.ghost{
+  position:fixed;bottom:4px;left:-70px;z-index:70;
+  background:none;border:none;padding:6px;
+  filter:drop-shadow(2px 3px 0 rgba(27,25,34,.25));
+}
+.ghost svg{display:block}
+.ghost-running{animation:ghost-run 8.4s linear forwards}
+@keyframes ghost-run{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(calc(100vw + 140px))}
+}
+.ghost-running svg{animation:ghost-bob .5s ease-in-out infinite alternate}
+@keyframes ghost-bob{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+.ghost-whisper{left:auto;right:18px;bottom:14px;animation:ghost-in .8s ease-out}
+.ghost-caught{bottom:10px;animation:ghost-in .3s ease-out}
+.ghost-caught:not([style]){left:50%;margin-left:-29px}
+@keyframes ghost-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ghost-peeking{left:50%;margin-left:-29px;bottom:-12px;animation:ghost-peek 2.6s ease-in-out forwards}
+@keyframes ghost-peek{
+  0%{transform:translateY(105%)}
+  25%,75%{transform:translateY(-4px)}
+  100%{transform:translateY(110%)}
+}
+.ghost-bubble{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  width:max-content;max-width:250px;
+  background:var(--panel);border:2px solid var(--line);
+  box-shadow:3px 3px 0 var(--hard);
+  padding:8px 12px;font-size:.85rem;line-height:1.45;color:var(--ink);
+  text-align:center;white-space:normal;
+}
+.ghost-whisper .ghost-bubble{left:auto;right:-6px;transform:none}
