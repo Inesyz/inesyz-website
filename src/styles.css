@@ -444,3 +444,17 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   0%{opacity:1;transform:translate(-50%,-50%) scale(.6) rotate(0deg)}
   100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.15) rotate(90deg)}
 }
+
+/* ---- žiedlapių lietus (kuria petalRain.js) ---- */
+.burst-petal{
+  position:fixed;top:-6vh;z-index:60;pointer-events:none;
+  width:11px;height:15px;
+  background:var(--skr-petal);
+  border:1.5px solid var(--line);
+  border-radius:60% 40% 55% 45% / 55% 45% 60% 40%;
+  animation:burst-fall linear forwards;
+}
+@keyframes burst-fall{
+  0%{opacity:1;transform:translate3d(0,0,0) rotate(0deg) scale(var(--s))}
+  100%{opacity:.7;transform:translate3d(-4vw,115vh,0) rotate(320deg) scale(var(--s))}
+}

@@ -4,6 +4,7 @@ import { initConsoleArt } from './ConsoleArt.js'
 import useTabTitle from './TabTitle.js'
 import useClickSounds from './ClickSounds.js'
 import ClickSparkles from './ClickSparkles.jsx'
+import SakuraBurst from './SakuraBurst.jsx'
 
 // Visų quirky dalykėlių agregatorius — vienintelis dalykas, kurį importuoja App.jsx.
 // Vėlesni quirk'ai jungiami čia, kad pagrindinis kodas liktų švarus.
@@ -17,6 +18,7 @@ export default function Quirks() {
   return (
     <>
       <ClickSparkles />
+      <SakuraBurst />
     </>
   )
 }
