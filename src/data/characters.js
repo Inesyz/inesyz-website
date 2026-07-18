@@ -30,6 +30,16 @@ export const characterBios = {
       name: 'Ryuk',
       bio: 'Mirties dievas, iš nuobodulio numetęs savo Death Note į žmonių pasaulį. Stebi chaosą su šypsena ir obuoliu rankoje.',
     },
+    {
+      malId: 78,
+      name: 'Amane, Misa',
+      bio: 'Populiari modelis ir aktorė, aklai atsidavusi Kirai. Jos šypsena, stilius ir Mirties užrašas slepia kur kas daugiau ryžto, nei iš pradžių atrodo.',
+    },
+    {
+      malId: 82,
+      name: 'Rem',
+      bio: 'Rami ir rimta mirties deivė, žmonių pasaulį stebinti kur kas mažiau ciniškai nei Ryuk. Dėl jai svarbių žmonių ji pasiryžusi labai daug.',
+    },
   ],
   'dandadan': [
     {
