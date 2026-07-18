@@ -9,7 +9,7 @@ function prettyName(malName) {
 }
 
 function isValidCachedCharacters(cachedChars) {
-  return Array.isArray(cachedChars) && cachedChars.every((character) => (
+  return Array.isArray(cachedChars) && cachedChars.length > 0 && cachedChars.every((character) => (
     character
     && typeof character === 'object'
     && (typeof character.key === 'string' || typeof character.key === 'number')
