@@ -63,6 +63,25 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
+/* ---- scroll baras ---- */
+::-webkit-scrollbar{width:14px}
+::-webkit-scrollbar-track{background:var(--panel-alt);border-left:2.5px solid var(--line)}
+::-webkit-scrollbar-thumb{background:var(--accent);border:2.5px solid var(--line)}
+::-webkit-scrollbar-thumb:hover{background:var(--skr-core)}
+/* Firefox nepalaiko ::-webkit-scrollbar — jam standartinė savybė.
+   Chrome jos nededame, kad nepanaikintų webkit stilių su rėmeliu. */
+@supports not selector(::-webkit-scrollbar){
+  html{scrollbar-color:var(--accent) var(--panel-alt)}
+}
+
+/* ---- sakuros žiedlapio kursorius ---- */
+html{
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26'><path d='M3 3 C 12 2, 20 8, 22 15 C 23 21, 17 24, 12 22 C 6 20, 2 12, 3 3 Z' fill='%23F7B2CB' stroke='%231B1922' stroke-width='1.6'/></svg>") 3 3,auto;
+}
+a,button,summary,[role="button"]{
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26'><path d='M3 3 C 12 2, 20 8, 22 15 C 23 21, 17 24, 12 22 C 6 20, 2 12, 3 3 Z' fill='%23D64D78' stroke='%231B1922' stroke-width='1.6'/></svg>") 3 3,pointer;
+}
 body{
   margin:0;
   background:var(--bg);
@@ -143,7 +162,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
   color:var(--ink);
   padding:4px 10px;
   font-size:.9rem;
-  cursor:pointer;
   box-shadow:2px 2px 0 var(--hard);
 }
 .theme-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--hard)}
@@ -285,7 +303,7 @@ h2 mark{
   font-family:inherit;
   text-transform:uppercase;letter-spacing:.1em;
   color:var(--a,var(--accent));text-decoration:none;
-  background:none;border:none;cursor:pointer;
+  background:none;border:none;
   border-bottom:2px solid currentColor;padding:0 0 2px;
 }
 .play::after{content:"";position:absolute;inset:0}
@@ -314,7 +332,6 @@ h2 mark{
   color:var(--ink);
   font-size:1rem;font-weight:700;
   width:36px;height:36px;
-  cursor:pointer;
   box-shadow:2px 2px 0 var(--hard);
 }
 .yt-close:hover{color:var(--accent)}
@@ -359,7 +376,7 @@ h2 mark{
 .tracklist button{
   display:flex;align-items:baseline;gap:16px;
   width:100%;padding:15px 6px;
-  background:none;border:none;cursor:pointer;
+  background:none;border:none;
   font:inherit;color:inherit;text-align:left;
 }
 .tracklist button:hover{background:var(--chipbg)}
@@ -376,6 +393,20 @@ footer{
   text-align:center;color:var(--ink-soft);font-size:.9rem;
 }
 footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accent)}
+
+/* ---- žiedlapių uodegėlė paskui pelę (kuria MouseTrail.jsx) ---- */
+.trail-petal{
+  position:fixed;z-index:45;pointer-events:none;
+  width:10px;height:13px;margin:-5px 0 0 -5px;
+  background:var(--skr-petal);
+  border:1.5px solid var(--line);
+  border-radius:60% 40% 55% 45% / 55% 45% 60% 40%;
+  animation:trail-fall .9s ease-out forwards;
+}
+@keyframes trail-fall{
+  0%{opacity:.9;transform:translate(0,0) rotate(0) scale(var(--s,1))}
+  100%{opacity:0;transform:translate(var(--dx,20px),46px) rotate(var(--rot,220deg)) scale(calc(var(--s,1)*.5))}
+}
 
 /* ---- scroll reveal (klases prideda ScrollReveal.jsx) ---- */
 @media (prefers-reduced-motion: no-preference){
