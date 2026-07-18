@@ -11,7 +11,7 @@ export const characterBios = {
     {
       malId: null,
       name: 'Kirishima, Touka',
-      bio: 'Kavinės „Anteiku" padavėja ir gūlė, išmokusi išgyventi žmonių pasaulyje. Po šiurkštumi slepia rūpestį — ir triuškinantį spyrį.',
+      bio: 'Kavinės „Anteiku" padavėja ir gūlė, išmokusi išgyventi žmonių pasaulyje. Po šiurkštumu slepia rūpestį — ir triuškinantį spyrį.',
     },
   ],
   'death-note': [
@@ -40,7 +40,7 @@ export const characterBios = {
     {
       malId: 196899,
       name: 'Takakura, Ken',
-      bio: 'Drovus okultikos fanatikas (visi jį vadina Okaranu), tikėjęs ateiviais, bet ne vaiduokliais. Po susidūrimo su Turbo Senele gavo prakeiksmą — ir netikėtą galią.',
+      bio: 'Drovus okultikos fanatikas (visi jį vadina Okarunu), tikėjęs ateiviais, bet ne vaiduokliais. Po susidūrimo su Turbo Senele gavo prakeiksmą — ir netikėtą galią.',
     },
   ],
   'blue-lock': [
