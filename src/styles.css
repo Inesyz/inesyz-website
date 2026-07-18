@@ -429,3 +429,7 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
 
 /* ---- rožinis teksto žymėjimas ---- */
 ::selection{background:var(--skr-petal);color:var(--ink)}
+
+/* ---- footerio citata ---- */
+.footer-quote{margin:0 0 14px;font-style:italic;color:var(--ink)}
+.footer-quote-src{color:var(--ink-soft);font-style:normal;font-size:.85em}
