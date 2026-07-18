@@ -257,6 +257,27 @@ h2 mark{
 }
 .card h3{margin:0 0 8px;font-size:1.35rem;line-height:1.2}
 .card p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.card-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.rating{display:inline-flex;align-items:center;gap:8px}
+.stars{
+  position:relative;display:inline-block;
+  font-size:1rem;line-height:1;letter-spacing:2px;
+  color:var(--dot);
+}
+.stars-fill{
+  position:absolute;top:0;left:0;
+  overflow:hidden;white-space:nowrap;
+  color:var(--a,var(--accent));
+}
+.score{font-size:.8rem;font-weight:700;color:var(--ink-soft)}
+.status{
+  font-size:.66rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;
+  padding:3px 9px;border:2px solid var(--line);
+}
+.status-watching{background:var(--a,var(--accent));color:#fff}
+.status-done{background:var(--chipbg);color:var(--ink)}
+.status-planned{background:none;border-style:dashed;color:var(--ink-soft)}
 .play{
   display:inline-flex;align-items:center;gap:7px;
   margin-top:14px;
@@ -355,6 +376,12 @@ footer{
   text-align:center;color:var(--ink-soft);font-size:.9rem;
 }
 footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accent)}
+
+/* ---- scroll reveal (klases prideda ScrollReveal.jsx) ---- */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+  .reveal-in{opacity:1;transform:none}
+}
 
 @media (max-width:760px){
   .vertical-jp{display:none}

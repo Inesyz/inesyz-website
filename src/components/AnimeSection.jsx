@@ -2,6 +2,12 @@ import { useRef, useState } from 'react'
 import { animeList } from '../data/anime.js'
 import YtModal from './YtModal.jsx'
 
+const statusLabels = {
+  watching: 'Žiūriu dabar',
+  done: 'Baigta',
+  planned: 'Plane',
+}
+
 export default function AnimeSection() {
   const audioRef = useRef(null)
   const [playingId, setPlayingId] = useState(null)
@@ -63,6 +69,18 @@ export default function AnimeSection() {
               <span className="chip">{anime.genre}</span>
             </div>
             <h3>{anime.title}</h3>
+            <div className="card-meta">
+              {anime.rating != null && (
+                <span className="rating" aria-label={`Įvertinimas: ${anime.rating} iš 10`}>
+                  <span className="stars" aria-hidden="true">
+                    ★★★★★
+                    <span className="stars-fill" style={{ width: `${anime.rating * 10}%` }}>★★★★★</span>
+                  </span>
+                  <span className="score mono">{anime.rating}/10</span>
+                </span>
+              )}
+              <span className={`status status-${anime.status}`}>{statusLabels[anime.status]}</span>
+            </div>
             <p>{anime.blurb}</p>
             <button className="play" onClick={() => toggle(anime)}>
               {playingId === anime.id ? '⏸ Stabdyti' : '▶ Groti openingą'}

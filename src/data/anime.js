@@ -1,5 +1,8 @@
 // Anime sąrašas: id turi sutapti su mp3 failo pavadinimu aplanke public/music/
 // (pvz., public/music/tokyo-ghoul.mp3). Jei failo nėra — atsidaro YouTube grotuvas puslapyje.
+//
+// rating — tavo įvertinimas nuo 1 iki 10 (arba null, jei dar nežiūrėjai).
+// status — 'watching' (žiūriu dabar), 'done' (baigta) arba 'planned' (plane).
 export const animeList = [
   {
     id: 'tokyo-ghoul',
@@ -10,6 +13,8 @@ export const animeList = [
     blurb: 'Vienas nevykęs pasimatymas — ir studentas Kenas Kaneki tampa pusiau gūliu, įstrigusiu tarp dviejų pasaulių. Tamsu, skaudu ir nepamirštama. O „Unravel" intro — legenda.',
     opening: 'Unravel — TK from Ling tosite sigure',
     ytId: '7aMOurgDB-o',
+    rating: 9,
+    status: 'watching',
   },
   {
     id: 'death-note',
@@ -20,6 +25,8 @@ export const animeList = [
     blurb: 'Sąsiuvinis, kuris žudo, ir dviejų genijų — Lighto ir L — šachmatų partija. Serialas, kurį įsijungi „tik vienai serijai", o baigi po savaitgalio.',
     opening: 'the WORLD — Nightmare',
     ytId: 'lnVDIA0QIvY',
+    rating: 10,
+    status: 'done',
   },
   {
     id: 'dandadan',
@@ -30,6 +37,8 @@ export const animeList = [
     blurb: 'Vaiduokliai, ateiviai ir du paaugliai, bandantys visame tame išgyventi. Absoliutus chaosas pačia geriausia prasme — ir vienas įsimintiniausių paskutinių metų openingų.',
     opening: 'Otonoke — Creepy Nuts',
     ytId: 'tRwHpyOq4P4',
+    rating: 10,
+    status: 'done',
   },
   {
     id: 'blue-lock',
@@ -40,6 +49,8 @@ export const animeList = [
     blurb: '300 puolėjų, viena vieta rinktinėje ir žiauriausias futbolo eksperimentas anime istorijoje. Po šio serialo egoizmas aikštėje atrodo kaip supergalia.',
     opening: 'Chaos ga Kiwamaru — UNISON SQUARE GARDEN',
     ytId: '5Iv3Fi8eb7w',
+    rating: 8,
+    status: 'done',
   },
   {
     id: 'jujutsu-kaisen',
@@ -50,6 +61,8 @@ export const animeList = [
     blurb: 'Prakeiksmai, burtininkai ir Gojo Satoru. Vienos gražiausiai animuotų kovų šiuolaikiniame anime — MAPPA čia pasiekė lubas.',
     opening: 'Kaikai Kitan — Eve',
     ytId: 'GwaRztMaoY0',
+    rating: null,
+    status: 'planned',
   },
   {
     id: 'hikaru',
@@ -60,5 +73,7 @@ export const animeList = [
     blurb: 'Yoshiki žino, kad jo geriausias draugas Hikaru mirė. Bet kažkas grįžo jo pavidalu… Tylus, šiurpus ir keistai gražus serialas apie draugystę ir netektį.',
     opening: 'Saikai — Vaundy',
     ytId: 'It--Sj7fdG8',
+    rating: 7,
+    status: 'done',
   },
 ]
