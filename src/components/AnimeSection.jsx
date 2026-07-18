@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { animeList } from '../data/anime.js'
+import YtModal from './YtModal.jsx'
 
 export default function AnimeSection() {
   const audioRef = useRef(null)
@@ -41,15 +42,6 @@ export default function AnimeSection() {
       .catch(fallback)
   }
 
-  useEffect(() => {
-    if (!videoAnime) return
-    const onKey = (e) => {
-      if (e.key === 'Escape') setVideoAnime(null)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [videoAnime])
-
   return (
     <section id="anime">
       <p className="eyebrow"><span className="jp">アニメ</span> · Kolekcija</p>
@@ -80,22 +72,11 @@ export default function AnimeSection() {
       </div>
 
       {videoAnime && (
-        <div className="yt-overlay" onClick={() => setVideoAnime(null)}>
-          <div className="yt-box" onClick={(e) => e.stopPropagation()}>
-            <div className="yt-head">
-              <h3>♪ {videoAnime.opening}</h3>
-              <button className="yt-close" onClick={() => setVideoAnime(null)} aria-label="Uždaryti">✕</button>
-            </div>
-            <div className="yt-frame">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${videoAnime.ytId}?autoplay=1`}
-                title={`${videoAnime.title} — openingas`}
-                allow="autoplay; encrypted-media; fullscreen"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
+        <YtModal
+          title={videoAnime.opening}
+          ytId={videoAnime.ytId}
+          onClose={() => setVideoAnime(null)}
+        />
       )}
     </section>
   )
