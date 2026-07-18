@@ -424,3 +424,8 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   *{transition:none !important;animation:none !important}
   html{scroll-behavior:auto}
 }
+
+/* ==== QUIRKY DALYKĖLIAI ==== */
+
+/* ---- rožinis teksto žymėjimas ---- */
+::selection{background:var(--skr-petal);color:var(--ink)}

@@ -1,6 +1,7 @@
 import Sakura from './components/Sakura.jsx'
 import ScrollReveal from './components/ScrollReveal.jsx'
 import MouseTrail from './components/MouseTrail.jsx'
+import Quirks from './quirks/Quirks.jsx'
 import Topbar from './components/Topbar.jsx'
 import Hero from './components/Hero.jsx'
 import Profile from './components/Profile.jsx'
@@ -16,6 +17,7 @@ export default function App() {
       <Sakura />
       <ScrollReveal />
       <MouseTrail />
+      <Quirks />
       <Topbar />
       <Hero />
       <main>
