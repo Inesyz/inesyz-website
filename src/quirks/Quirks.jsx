@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { countVisit } from './memory.js'
+import { initConsoleArt } from './ConsoleArt.js'
 import useTabTitle from './TabTitle.js'
 
 // Visų quirky dalykėlių agregatorius — vienintelis dalykas, kurį importuoja App.jsx.
@@ -7,6 +8,7 @@ import useTabTitle from './TabTitle.js'
 export default function Quirks() {
   useEffect(() => {
     countVisit()
+    initConsoleArt()
   }, [])
   useTabTitle()
   return null
