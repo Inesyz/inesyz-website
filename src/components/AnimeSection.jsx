@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { animeList } from '../data/anime.js'
+import CharactersModal from './CharactersModal.jsx'
 import YtModal from './YtModal.jsx'
 
 const statusLabels = {
@@ -12,6 +13,7 @@ export default function AnimeSection() {
   const audioRef = useRef(null)
   const [playingId, setPlayingId] = useState(null)
   const [videoAnime, setVideoAnime] = useState(null)
+  const [charsAnime, setCharsAnime] = useState(null)
 
   function stop() {
     if (audioRef.current) {
@@ -68,7 +70,15 @@ export default function AnimeSection() {
               <span className="jp">{anime.jp}</span>
               <span className="chip">{anime.genre}</span>
             </div>
-            <h3>{anime.title}</h3>
+            <h3>
+              <button
+                className="title-btn"
+                onClick={() => setCharsAnime(anime)}
+                title="Rodyti pagrindinius veikėjus"
+              >
+                {anime.title}
+              </button>
+            </h3>
             <div className="card-meta">
               {anime.rating != null && (
                 <span className="rating" aria-label={`Įvertinimas: ${anime.rating} iš 10`}>
@@ -96,6 +106,7 @@ export default function AnimeSection() {
           onClose={() => setVideoAnime(null)}
         />
       )}
+      {charsAnime && <CharactersModal anime={charsAnime} onClose={() => setCharsAnime(null)} />}
     </section>
   )
 }
