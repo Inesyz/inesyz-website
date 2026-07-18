@@ -1,6 +1,3 @@
 node_modules/
 dist/
 *.local
-
-# Muzikos failai lieka tik šiame kompiuteryje (autorių teisės)
-public/music/*.mp3
