@@ -497,3 +497,42 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
 .brand-mark::before{content:"✦"}
 .night-hours .brand-mark::before{content:"☾"}
 .night-hours{--accent:#8F7BD8;--skr-petal:#B9A7E6;--skr-core:#8F7BD8}
+
+/* ---- Konami glitch ir slaptas kambarys ---- */
+.glitch-overlay{
+  position:fixed;inset:0;z-index:90;pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,85,112,.28) 0 3px,
+    transparent 3px 7px,
+    rgba(90,200,250,.22) 7px 9px,
+    transparent 9px 16px
+  );
+  mix-blend-mode:difference;
+  animation:glitch-jump .12s steps(2) infinite;
+}
+@keyframes glitch-jump{
+  0%{transform:translate(0,0)}
+  25%{transform:translate(-8px,4px) skewX(2deg)}
+  50%{transform:translate(6px,-6px)}
+  75%{transform:translate(-4px,-3px) skewX(-3deg)}
+  100%{transform:translate(0,3px)}
+}
+.secret-room{
+  position:fixed;inset:0;z-index:95;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;text-align:center;overflow:auto;
+}
+.secret-inner{max-width:540px}
+.secret-inner svg{margin:0 auto 10px}
+.secret-inner h2{margin:0 0 4px;font-size:clamp(1.9rem,4.5vw,2.7rem)}
+.secret-jp{letter-spacing:.4em;color:var(--accent);margin:0 0 18px}
+.secret-count{font-weight:700;color:var(--accent);margin:18px 0}
+.secret-hints-title{font-size:.85rem;color:var(--ink-soft);margin:0 0 6px}
+.secret-hints{
+  list-style:'✦  ';margin:0 0 22px;padding-left:1.4em;
+  text-align:left;color:var(--ink-soft);font-size:.9rem;
+  display:inline-block;
+}
+.secret-hints li{margin-bottom:4px}
