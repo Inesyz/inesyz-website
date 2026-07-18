@@ -1,0 +1,58 @@
+// Anime sąrašas: id turi sutapti su mp3 failo pavadinimu aplanke public/music/
+// (pvz., public/music/tokyo-ghoul.mp3). Jei failo nėra — atsidarys YouTube.
+export const animeList = [
+  {
+    id: 'tokyo-ghoul',
+    title: 'Tokyo Ghoul',
+    jp: '東京喰種',
+    genre: 'Tamsi fantastika',
+    color: '#C21F3A',
+    blurb: 'Vienas nevykęs pasimatymas — ir studentas Kenas Kaneki tampa pusiau gūliu, įstrigusiu tarp dviejų pasaulių. Tamsu, skaudu ir nepamirštama. O „Unravel" intro — legenda.',
+    youtube: 'https://www.youtube.com/results?search_query=tokyo+ghoul+opening+unravel',
+  },
+  {
+    id: 'death-note',
+    title: 'Death Note',
+    jp: 'デスノート',
+    genre: 'Psichologinis trileris',
+    color: '#3E4A63',
+    blurb: 'Sąsiuvinis, kuris žudo, ir dviejų genijų — Lighto ir L — šachmatų partija. Serialas, kurį įsijungi „tik vienai serijai", o baigi po savaitgalio.',
+    youtube: 'https://www.youtube.com/results?search_query=death+note+opening+the+world+nightmare',
+  },
+  {
+    id: 'dandadan',
+    title: 'Dandadan',
+    jp: 'ダンダダン',
+    genre: 'Chaosas / komedija',
+    color: '#C13FA0',
+    blurb: 'Vaiduokliai, ateiviai ir du paaugliai, bandantys visame tame išgyventi. Absoliutus chaosas pačia geriausia prasme — ir vienas įsimintiniausių paskutinių metų openingų.',
+    youtube: 'https://www.youtube.com/results?search_query=dandadan+opening+otonoke+creepy+nuts',
+  },
+  {
+    id: 'blue-lock',
+    title: 'Blue Lock',
+    jp: 'ブルーロック',
+    genre: 'Sportas',
+    color: '#1F5FC2',
+    blurb: '300 puolėjų, viena vieta rinktinėje ir žiauriausias futbolo eksperimentas anime istorijoje. Po šio serialo egoizmas aikštėje atrodo kaip supergalia.',
+    youtube: 'https://www.youtube.com/results?search_query=blue+lock+opening+chaos+ga+kiwamaru',
+  },
+  {
+    id: 'jujutsu-kaisen',
+    title: 'Jujutsu Kaisen',
+    jp: '呪術廻戦',
+    genre: 'Shounen / veiksmas',
+    color: '#6C3FC1',
+    blurb: 'Prakeiksmai, burtininkai ir Gojo Satoru. Vienos gražiausiai animuotų kovų šiuolaikiniame anime — MAPPA čia pasiekė lubas.',
+    youtube: 'https://www.youtube.com/results?search_query=jujutsu+kaisen+opening+kaikai+kitan',
+  },
+  {
+    id: 'hikaru',
+    title: 'The Summer Hikaru Died',
+    jp: '光が死んだ夏',
+    genre: 'Siaubas / misterija',
+    color: '#1F8577',
+    blurb: 'Yoshiki žino, kad jo geriausias draugas Hikaru mirė. Bet kažkas grįžo jo pavidalu… Tylus, šiurpus ir keistai gražus serialas apie draugystę ir netektį.',
+    youtube: 'https://www.youtube.com/results?search_query=hikaru+ga+shinda+natsu+opening',
+  },
+]

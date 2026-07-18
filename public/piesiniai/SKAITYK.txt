@@ -1,0 +1,2 @@
+Čia dėk savo piešinių nuotraukas (jpg arba png).
+Kai įkelsi — paprašyk Claude, kad įdėtų jas į svetainės „Piešimo kampelio" galeriją.

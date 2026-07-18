@@ -1,0 +1,11 @@
+Čia dėk anime openingų mp3 failus. Failų pavadinimai turi būti tokie:
+
+  tokyo-ghoul.mp3
+  death-note.mp3
+  dandadan.mp3
+  blue-lock.mp3
+  jujutsu-kaisen.mp3
+  hikaru.mp3
+
+Kai failas bus čia, paspaudus anime kortelę svetainėje muzika gros tiesiai puslapyje.
+Jei failo nėra — atsidarys YouTube paieška su tuo openingu.
