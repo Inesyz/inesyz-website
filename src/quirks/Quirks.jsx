@@ -5,6 +5,7 @@ import useTabTitle from './TabTitle.js'
 import useClickSounds from './ClickSounds.js'
 import useCardTilt from './CardTilt.js'
 import useNightHours from './NightHours.js'
+import useSecretWords from './SecretWords.js'
 import ClickSparkles from './ClickSparkles.jsx'
 import SakuraBurst from './SakuraBurst.jsx'
 import Ghost from './Ghost.jsx'
@@ -21,6 +22,7 @@ export default function Quirks() {
   useClickSounds()
   useCardTilt()
   useNightHours()
+  useSecretWords()
   return (
     <>
       <ClickSparkles />

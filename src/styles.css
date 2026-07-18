@@ -536,3 +536,20 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   display:inline-block;
 }
 .secret-hints li{margin-bottom:4px}
+
+/* ---- slapti žodžiai ---- */
+.golden-petals .fall,
+.golden-petals .trail-petal,
+.golden-petals .burst-petal{background:#F5C76E}
+.rainbow-wave{
+  position:fixed;inset:0;z-index:80;pointer-events:none;
+  opacity:0;
+  background:linear-gradient(100deg,#FF5570,#F5C76E,#7ED957,#5AC8FA,#8F7BD8,#FF5570);
+  background-size:300% 100%;
+  animation:rainbow-sweep 2.1s ease-in-out forwards;
+}
+@keyframes rainbow-sweep{
+  0%{opacity:0;background-position:0% 0}
+  30%{opacity:.32}
+  100%{opacity:0;background-position:100% 0}
+}
