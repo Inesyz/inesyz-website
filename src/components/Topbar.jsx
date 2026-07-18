@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { isMuted, setMuted } from '../quirks/sounds.js'
+
 function toggleTheme() {
   const root = document.documentElement
   const current =
@@ -7,6 +10,13 @@ function toggleTheme() {
 }
 
 export default function Topbar() {
+  const [muted, setMutedState] = useState(isMuted)
+
+  function toggleSound() {
+    setMuted(!muted)
+    setMutedState(!muted)
+  }
+
   return (
     <div className="topbar">
       <a className="brand" href="#virsus">✦ Inesyz<b>_0</b></a>
@@ -16,6 +26,13 @@ export default function Topbar() {
         <a href="#piesimas">Piešimas</a>
         <a href="#zaidimai">Žaidimai</a>
         <a href="#muzika">Muzika</a>
+        <button
+          className="theme-btn"
+          onClick={toggleSound}
+          title={muted ? 'Įjungti garsiukus' : 'Išjungti garsiukus'}
+        >
+          {muted ? '🔕' : '🔔'}
+        </button>
         <button className="theme-btn" onClick={toggleTheme} title="Perjungti šviesią / tamsią temą">🌓</button>
       </nav>
     </div>

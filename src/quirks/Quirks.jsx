@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { countVisit } from './memory.js'
 import { initConsoleArt } from './ConsoleArt.js'
 import useTabTitle from './TabTitle.js'
+import useClickSounds from './ClickSounds.js'
 import ClickSparkles from './ClickSparkles.jsx'
 
 // Visų quirky dalykėlių agregatorius — vienintelis dalykas, kurį importuoja App.jsx.
@@ -12,6 +13,7 @@ export default function Quirks() {
     initConsoleArt()
   }, [])
   useTabTitle()
+  useClickSounds()
   return (
     <>
       <ClickSparkles />
