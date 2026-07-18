@@ -3,9 +3,11 @@
 //
 // rating — tavo įvertinimas nuo 1 iki 10 (arba null, jei dar nežiūrėjai).
 // status — 'watching' (žiūriu dabar), 'done' (baigta) arba 'planned' (plane).
+// malId — MyAnimeList ID (veikėjų modalui per Jikan API).
 export const animeList = [
   {
     id: 'tokyo-ghoul',
+    malId: 22319,
     title: 'Tokyo Ghoul',
     jp: '東京喰種',
     genre: 'Tamsi fantastika',
@@ -18,6 +20,7 @@ export const animeList = [
   },
   {
     id: 'death-note',
+    malId: 1535,
     title: 'Death Note',
     jp: 'デスノート',
     genre: 'Psichologinis trileris',
@@ -30,6 +33,7 @@ export const animeList = [
   },
   {
     id: 'dandadan',
+    malId: 57334,
     title: 'Dandadan',
     jp: 'ダンダダン',
     genre: 'Chaosas / komedija',
@@ -42,6 +46,7 @@ export const animeList = [
   },
   {
     id: 'blue-lock',
+    malId: 49596,
     title: 'Blue Lock',
     jp: 'ブルーロック',
     genre: 'Sportas',
@@ -54,6 +59,7 @@ export const animeList = [
   },
   {
     id: 'jujutsu-kaisen',
+    malId: 40748,
     title: 'Jujutsu Kaisen',
     jp: '呪術廻戦',
     genre: 'Shounen / veiksmas',
@@ -66,6 +72,7 @@ export const animeList = [
   },
   {
     id: 'hikaru',
+    malId: 58913,
     title: 'The Summer Hikaru Died',
     jp: '光が死んだ夏',
     genre: 'Siaubas / misterija',
