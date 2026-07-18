@@ -43,7 +43,9 @@ export default function KonamiSecret() {
     let i = 0
     function onKey(e) {
       const k = e.key.toLowerCase()
-      i = k === SEQ[i] ? i + 1 : k === SEQ[0] ? 1 : 0
+      // Papildomas ↑ sekos pradžioje (pvz., ↑↑↑↓↓...) neturi nulaužti kodo:
+      // po dviejų ↑ dar vienas ↑ palieka mus toje pačioje vietoje.
+      i = k === SEQ[i] ? i + 1 : k === 'arrowup' ? (i === 2 ? 2 : 1) : 0
       if (i === SEQ.length) {
         i = 0
         trigger()

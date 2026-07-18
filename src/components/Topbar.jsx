@@ -29,6 +29,7 @@ export default function Topbar() {
         <button
           className="theme-btn"
           onClick={toggleSound}
+          aria-pressed={muted}
           title={muted ? 'Įjungti garsiukus' : 'Išjungti garsiukus'}
         >
           {muted ? '🔕' : '🔔'}
