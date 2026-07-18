@@ -491,4 +491,9 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   padding:8px 12px;font-size:.85rem;line-height:1.45;color:var(--ink);
   text-align:center;white-space:normal;
 }
+
+/* ---- nakties valandos (02:00–03:59, body klasę deda NightHours.js) ---- */
+.brand-mark::before{content:"✦"}
+.night-hours .brand-mark::before{content:"☾"}
+.night-hours{--accent:#8F7BD8;--skr-petal:#B9A7E6;--skr-core:#8F7BD8}
 .ghost-whisper .ghost-bubble{left:auto;right:-6px;transform:none}

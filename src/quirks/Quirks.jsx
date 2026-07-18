@@ -4,6 +4,7 @@ import { initConsoleArt } from './ConsoleArt.js'
 import useTabTitle from './TabTitle.js'
 import useClickSounds from './ClickSounds.js'
 import useCardTilt from './CardTilt.js'
+import useNightHours from './NightHours.js'
 import ClickSparkles from './ClickSparkles.jsx'
 import SakuraBurst from './SakuraBurst.jsx'
 import Ghost from './Ghost.jsx'
@@ -18,6 +19,7 @@ export default function Quirks() {
   useTabTitle()
   useClickSounds()
   useCardTilt()
+  useNightHours()
   return (
     <>
       <ClickSparkles />

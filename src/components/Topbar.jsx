@@ -19,7 +19,7 @@ export default function Topbar() {
 
   return (
     <div className="topbar">
-      <a className="brand" href="#virsus">✦ Inesyz<b>_0</b></a>
+      <a className="brand" href="#virsus"><span className="brand-mark" aria-hidden="true"></span> Inesyz<b>_0</b></a>
       <nav>
         <a href="#profilis">Profilis</a>
         <a href="#anime">Anime</a>
