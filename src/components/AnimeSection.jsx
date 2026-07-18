@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { animeList } from '../data/anime.js'
 
 export default function AnimeSection() {
   const audioRef = useRef(null)
   const [playingId, setPlayingId] = useState(null)
+  const [videoAnime, setVideoAnime] = useState(null)
 
   function stop() {
     if (audioRef.current) {
@@ -19,14 +20,15 @@ export default function AnimeSection() {
       return
     }
     stop()
-    // Bandome groti vietinį mp3 iš public/music/; jei jo nėra — atidarome YouTube
+    // Pirmiausia bandome groti vietinį mp3 iš public/music/;
+    // jei failo nėra — atidarome YouTube grotuvą pačiame puslapyje
     const audio = new Audio(`${import.meta.env.BASE_URL}music/${anime.id}.mp3`)
     let fellBack = false
     const fallback = () => {
       if (fellBack) return
       fellBack = true
       stop()
-      window.open(anime.youtube, '_blank', 'noopener')
+      setVideoAnime(anime)
     }
     audio.onerror = fallback
     audio.onended = stop
@@ -39,6 +41,15 @@ export default function AnimeSection() {
       .catch(fallback)
   }
 
+  useEffect(() => {
+    if (!videoAnime) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setVideoAnime(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [videoAnime])
+
   return (
     <section id="anime">
       <p className="eyebrow"><span className="jp">アニメ</span> · Kolekcija</p>
@@ -46,7 +57,7 @@ export default function AnimeSection() {
       <p className="section-intro">
         Šeši serialai, kurie mane užkabino labiausiai — nuo tamsių psichologinių trilerių
         iki futbolo beprotybės. <strong>Paspausk ant kortelės</strong> — pasigirs to anime
-        openingas (jei mp3 dar neįkeltas, atsidarys YouTube). ♪
+        openingas. ♪
       </p>
       <div className="cards">
         {animeList.map((anime) => (
@@ -67,6 +78,25 @@ export default function AnimeSection() {
           </article>
         ))}
       </div>
+
+      {videoAnime && (
+        <div className="yt-overlay" onClick={() => setVideoAnime(null)}>
+          <div className="yt-box" onClick={(e) => e.stopPropagation()}>
+            <div className="yt-head">
+              <h3>♪ {videoAnime.opening}</h3>
+              <button className="yt-close" onClick={() => setVideoAnime(null)} aria-label="Uždaryti">✕</button>
+            </div>
+            <div className="yt-frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${videoAnime.ytId}?autoplay=1`}
+                title={`${videoAnime.title} — openingas`}
+                allow="autoplay; encrypted-media; fullscreen"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
