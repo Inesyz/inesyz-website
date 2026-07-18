@@ -8,19 +8,59 @@ function prettyName(malName) {
   return givenNames.length ? `${givenNames.join(',').trim()} ${surname.trim()}` : malName
 }
 
-export default function CharactersModal({ anime, onClose }) {
+function isValidCachedCharacters(cachedChars) {
+  return Array.isArray(cachedChars) && cachedChars.every((character) => (
+    character
+    && typeof character === 'object'
+    && (typeof character.key === 'string' || typeof character.key === 'number')
+    && typeof character.name === 'string'
+    && character.name.trim()
+    && (character.image === null || typeof character.image === 'string')
+    && (!Object.hasOwn(character, 'bio') || character.bio === null || typeof character.bio === 'string')
+  ))
+}
+
+export default function CharactersModal({ anime, onClose, returnFocusRef }) {
   const [status, setStatus] = useState('loading')
   const [chars, setChars] = useState([])
+  const boxRef = useRef(null)
   const closeRef = useRef(null)
+  const onCloseRef = useRef(onClose)
+  onCloseRef.current = onClose
 
   useEffect(() => {
     closeRef.current?.focus()
     const onKey = (event) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') {
+        onCloseRef.current()
+        return
+      }
+      if (event.key !== 'Tab') return
+
+      const focusable = Array.from(boxRef.current?.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ) || [])
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (!boxRef.current?.contains(document.activeElement)) {
+        event.preventDefault()
+        first.focus()
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      returnFocusRef.current?.focus()
+    }
+  }, [returnFocusRef])
 
   useEffect(() => {
     let alive = true
@@ -33,18 +73,31 @@ export default function CharactersModal({ anime, onClose }) {
     }))
 
     async function loadCharacters() {
+      let cached
       try {
-        const cached = sessionStorage.getItem(`${CACHE_PREFIX}${anime.id}`)
-        if (cached) {
+        cached = sessionStorage.getItem(`${CACHE_PREFIX}${anime.id}`)
+      } catch {
+        cached = null
+      }
+      if (cached) {
+        try {
           const cachedChars = JSON.parse(cached)
-          if (!Array.isArray(cachedChars)) throw new Error('Sugadintas veikėjų podėlis')
+          if (!isValidCachedCharacters(cachedChars)) throw new Error('Sugadintas veikėjų podėlis')
           if (alive) {
             setChars(cachedChars)
             setStatus('ok')
           }
           return
+        } catch {
+          if (alive) {
+            setChars(fallback)
+            setStatus('offline')
+          }
+          return
         }
+      }
 
+      try {
         const response = await fetch(`https://api.jikan.moe/v4/anime/${anime.malId}/characters`)
         if (!response.ok) throw new Error('Nepavyko gauti veikėjų')
 
@@ -64,7 +117,11 @@ export default function CharactersModal({ anime, onClose }) {
           })
         if (!mainCharacters.length) throw new Error('Nerasta pagrindinių veikėjų')
 
-        sessionStorage.setItem(`${CACHE_PREFIX}${anime.id}`, JSON.stringify(mainCharacters))
+        try {
+          sessionStorage.setItem(`${CACHE_PREFIX}${anime.id}`, JSON.stringify(mainCharacters))
+        } catch {
+          // Veikėjai rodomi ir tada, kai naršyklė neleidžia naudoti podėlio.
+        }
         if (alive) {
           setChars(mainCharacters)
           setStatus('ok')
@@ -86,9 +143,11 @@ export default function CharactersModal({ anime, onClose }) {
   return (
     <div className="yt-overlay" onClick={onClose}>
       <div
+        ref={boxRef}
         className="chars-box"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
+        aria-modal="true"
         aria-label={`${anime.title} veikėjai`}
         style={{ '--a': anime.color }}
       >

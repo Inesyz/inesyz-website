@@ -14,6 +14,7 @@ export default function AnimeSection() {
   const [playingId, setPlayingId] = useState(null)
   const [videoAnime, setVideoAnime] = useState(null)
   const [charsAnime, setCharsAnime] = useState(null)
+  const charsTriggerRef = useRef(null)
 
   function stop() {
     if (audioRef.current) {
@@ -73,7 +74,10 @@ export default function AnimeSection() {
             <h3>
               <button
                 className="title-btn"
-                onClick={() => setCharsAnime(anime)}
+                onClick={(event) => {
+                  charsTriggerRef.current = event.currentTarget
+                  setCharsAnime(anime)
+                }}
                 title="Rodyti pagrindinius veikėjus"
               >
                 {anime.title}
@@ -106,7 +110,13 @@ export default function AnimeSection() {
           onClose={() => setVideoAnime(null)}
         />
       )}
-      {charsAnime && <CharactersModal anime={charsAnime} onClose={() => setCharsAnime(null)} />}
+      {charsAnime && (
+        <CharactersModal
+          anime={charsAnime}
+          onClose={() => setCharsAnime(null)}
+          returnFocusRef={charsTriggerRef}
+        />
+      )}
     </section>
   )
 }
