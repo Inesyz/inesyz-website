@@ -124,7 +124,8 @@ Vienas `localStorage` raktas `inesyz-quirks`:
 - Visi dekoratyviniai elementai — `aria-hidden="true"`; šmėkliukės burbulo
   tekstas paliekamas skaitomas.
 - Garsai niekada nepaleidžiami automatiškai prieš pirmą sąveiką; mute įsimenamas.
-- Telefonuose: tilt ir scroll-peek veikia per touch; sparkles veikia ant tap;
+- Telefonuose: scroll-peek veikia ir be pelės; sparkles veikia ant tap; tilt —
+  tik pelei (touch metu trukdytų slinkti puslapį);
   Konami kodas telefone neprieinamas — vietoj jo slaptą sekciją atidaro
   7 paspaudimai ant footerio „またね“ užrašo (tas pats efektas).
 - Visi interval/listener'iai išvalomi unmount metu; StrictMode dvigubas
