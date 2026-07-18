@@ -45,6 +45,12 @@ pikselinę šmėkliukę, kuri tampa svetainės „paslapčių šeimininke“.
 | 17 | Scroll žemiau apačios | Nuslinkus iki pat apačios ir sukant ratuką toliau — šmėkliukė žvilgteli iš už apatinio ekrano krašto ir pasislepia |
 | 18 | 404 puslapis | `public/404.html` — savarankiškas statinis puslapis (inline CSS, be React): šmėkliukė, „Pasiklydai?..“ ir nuoroda namo. Kelias namo — `/inesyz-website/` (GitHub Pages), su komentaru kode kodėl |
 
+### Papildymas (2026-07-18, naudotojos idėja po pirmo etapo)
+
+| # | Funkcija | Aprašymas |
+|---|----------|-----------|
+| 19 | Anime veikėjų modalas | Paspaudus anime kortelės pavadinimą — modalas (YtModal stiliumi) su pagrindiniais veikėjais: nuotrauka iš Jikan API (`/v4/anime/{malId}/characters`, role=Main, iki 6, rikiuota pagal favorites), vardas ir trumpa lietuviška biografija iš `src/data/characters.js` (rašyta ranka, be spoilerių; atpažįstama pagal veikėjo MAL id ARBA vardą). API atsakymas cache'uojamas sessionStorage. Jei API nepasiekiamas — kortelės su spalvotu inicialu (anime `--a` spalva) ir lokaliomis bio + šmėkliukės pastaba. Kraunant — šmėkliukė „ieško veikėjų“. Kortelės grojimo overlay lieka veikti: pavadinimo mygtukas turi būti virš jo (z-index) |
+
 ## Architektūra
 
 ### Failų struktūra
