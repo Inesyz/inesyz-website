@@ -20,6 +20,32 @@ function isValidCachedCharacters(cachedChars) {
   ))
 }
 
+function matchesBio(character, bio) {
+  return (
+    (bio.malId != null && String(character.key) === String(bio.malId))
+    || character.name === prettyName(bio.name)
+  )
+}
+
+// Jikan ne visus svarbius veikėjus pažymi role="Main". Todėl API sąrašą
+// papildome vietinėmis biografijomis, kurioms API negrąžino kortelės.
+function mergeCharactersWithBios(characters, bios) {
+  const refreshed = characters.map((character) => {
+    const bio = bios.find((entry) => matchesBio(character, entry))
+    return { ...character, bio: bio?.bio ?? character.bio ?? null }
+  })
+  const missingLocalCharacters = bios
+    .filter((bio) => !refreshed.some((character) => matchesBio(character, bio)))
+    .map((bio) => ({
+      key: bio.malId ?? `local-${bio.name}`,
+      name: prettyName(bio.name),
+      image: null,
+      bio: bio.bio,
+    }))
+
+  return [...refreshed, ...missingLocalCharacters]
+}
+
 export default function CharactersModal({ anime, onClose, returnFocusRef }) {
   const [status, setStatus] = useState('loading')
   const [chars, setChars] = useState([])
@@ -84,7 +110,7 @@ export default function CharactersModal({ anime, onClose, returnFocusRef }) {
           const cachedChars = JSON.parse(cached)
           if (!isValidCachedCharacters(cachedChars)) throw new Error('Sugadintas veikėjų podėlis')
           if (alive) {
-            setChars(cachedChars)
+            setChars(mergeCharactersWithBios(cachedChars, bios))
             setStatus('ok')
           }
           return
@@ -123,7 +149,7 @@ export default function CharactersModal({ anime, onClose, returnFocusRef }) {
           // Veikėjai rodomi ir tada, kai naršyklė neleidžia naudoti podėlio.
         }
         if (alive) {
-          setChars(mainCharacters)
+          setChars(mergeCharactersWithBios(mainCharacters, bios))
           setStatus('ok')
         }
       } catch {
