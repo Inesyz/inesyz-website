@@ -33,11 +33,13 @@ export const characterBios = {
     {
       malId: 78,
       name: 'Amane, Misa',
+      image: 'https://s4.anilist.co/file/anilistcdn/character/large/b835-CiZa8y2z2gCz.png',
       bio: 'Populiari modelis ir aktorė, aklai atsidavusi Kirai. Jos šypsena, stilius ir Mirties užrašas slepia kur kas daugiau ryžto, nei iš pradžių atrodo.',
     },
     {
       malId: 82,
       name: 'Rem',
+      image: 'https://s4.anilist.co/file/anilistcdn/character/large/n1905-9GfCvLFKNRLR.png',
       bio: 'Rami ir rimta mirties deivė, žmonių pasaulį stebinti kur kas mažiau ciniškai nei Ryuk. Dėl jai svarbių žmonių ji pasiryžusi labai daug.',
     },
   ],

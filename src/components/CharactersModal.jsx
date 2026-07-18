@@ -39,7 +39,7 @@ function mergeCharactersWithBios(characters, bios) {
     .map((bio) => ({
       key: bio.malId ?? `local-${bio.name}`,
       name: prettyName(bio.name),
-      image: null,
+      image: bio.image ?? null,
       bio: bio.bio,
     }))
 
@@ -94,7 +94,7 @@ export default function CharactersModal({ anime, onClose, returnFocusRef }) {
     const fallback = bios.map((bio) => ({
       key: bio.name,
       name: prettyName(bio.name),
-      image: null,
+      image: bio.image ?? null,
       bio: bio.bio,
     }))
 
