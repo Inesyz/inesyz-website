@@ -1,8 +1,10 @@
+import Greeting from '../quirks/Greeting.jsx'
+
 export default function Hero() {
   return (
     <header className="hero" id="virsus">
       <div className="hero-inner">
-        <p className="eyebrow"><span className="jp">ようこそ</span> · Sveiki atvykę</p>
+        <Greeting />
         <h1 className="display">Inesyz<span className="accent">_0</span></h1>
         <p className="lede">
           Piešiu, žaidžiu ir gyvenu anime pasauliuose. Čia — mano kampelis internete:
