@@ -553,3 +553,21 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
   30%{opacity:.32}
   100%{opacity:0;background-position:100% 0}
 }
+/* ---- NESPAUSK mygtukas ---- */
+.dont-press-wrap{margin:20px 0 0;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.dont-press{
+  border:2px solid var(--line);background:var(--panel);color:var(--ink-soft);
+  font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 12px;box-shadow:2px 2px 0 var(--hard);
+}
+.dont-press:hover{color:var(--accent)}
+.dont-press-msg{font-size:.85rem;color:var(--accent);font-weight:600}
+.dont-press-note{margin:20px 0 0;font-size:.85rem;color:var(--ink-soft);font-style:italic}
+.screen-shake{animation:screen-shake .6s ease-in-out}
+@keyframes screen-shake{
+  0%,100%{transform:translate(0,0)}
+  20%{transform:translate(-7px,3px) rotate(-.4deg)}
+  40%{transform:translate(6px,-4px) rotate(.4deg)}
+  60%{transform:translate(-5px,-3px)}
+  80%{transform:translate(4px,3px)}
+}
