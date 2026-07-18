@@ -433,3 +433,14 @@ footer .jp{letter-spacing:.3em;display:block;margin-bottom:8px;color:var(--accen
 /* ---- footerio citata ---- */
 .footer-quote{margin:0 0 14px;font-style:italic;color:var(--ink)}
 .footer-quote-src{color:var(--ink-soft);font-style:normal;font-size:.85em}
+
+/* ---- blizgučiai paspaudus (kuria ClickSparkles.jsx) ---- */
+.sparkle{
+  position:fixed;z-index:60;pointer-events:none;
+  color:var(--accent);line-height:1;
+  animation:sparkle-fly .7s ease-out forwards;
+}
+@keyframes sparkle-fly{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.6) rotate(0deg)}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.15) rotate(90deg)}
+}
